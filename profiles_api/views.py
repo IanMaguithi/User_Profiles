@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets
 
-from .serializers import HalloSerializer
+from .serializers import HalloSerializer, UserProfileSerializer
+from .models import UserProfile
 
 
 # Create your views here.
@@ -99,3 +100,10 @@ class HalloViewsets(viewsets.ViewSet):
         """Handles removing an object"""
 
         return Response({'http_method': 'DELETE'})
+
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    """Handles creating, reading and updating profiles"""
+
+    serializer_class = UserProfileSerializer
+    queryset = UserProfile.objects.all()

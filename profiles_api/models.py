@@ -40,7 +40,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)  # required when substituting the custom user model in django
     is_staff = models.BooleanField(default=False)
 
-    object = UserProfileManager()  # object manager required
+    objects = UserProfileManager()  # object manager required
 
     USERNAME_FIELD = 'email'  # user to use email instead of username to sign in
     REQUIRED_FIELDS = ['name']
